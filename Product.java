@@ -6,10 +6,10 @@ public class Product {
     private int stock, ID, Price;
     private List<String> exitTransactions;
 
-    public Product(int ID,String name, int Price, int stock) {
+    public Product(int ID, String name, int Price, int stock) {
         this.name = name;
         this.stock = stock;
-        this.ID =ID;
+        this.ID = ID;
         this.Price = Price;
         this.exitTransactions = new ArrayList<>();
     }
@@ -37,6 +37,11 @@ public class Product {
     public void addExitTransaction(String reason, int quantity) {
         exitTransactions.add("Exit Reason: " + reason + ", Quantity: " + quantity);
         stock -= quantity;
+    }
+
+    public void addSupply(int quantity) {
+        exitTransactions.add("Supply: Quantity: " + quantity);
+        stock += quantity;
     }
 
     public void editProductName(String newName) {
